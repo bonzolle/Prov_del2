@@ -1,11 +1,418 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <title>Tricell Laboratories Inc, Åland</title>
+
+    <script language="JavaScript" type="text/javascript" src="scripts/leftmenu.js"></script>
+
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/leftmenu.css" />
+
+    <style>
+        .infotable {
+            width: 758px;
+            border-collapse: collapse;
+        }
+
+        .infotitles {
+            vertical-align: top;
+        }
+
+        .dateTimeCreator {
+            width: 260px;
+            vertical-align: top;
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        .metaBox {
+            display: inline-block;
+            text-align: left;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .editBox {
+            border: 1px solid #000;
+            padding: 10px;
+            width: 716px;
+            background: #fff;
+        }
+
+        .formRow {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .formRow input {
+            width: 90px;
+            padding: 3px 6px;
+            border: 1px solid #000;
+            font-size: 12px;
+        }
+
+        .formRow input#virus_name_input {
+            width: 140px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 140px;
+            resize: none;
+            border: 1px solid #000;
+            font-size: 12px;
+            padding: 6px;
+            box-sizing: border-box;
+        }
+
+        .btnRow {
+            margin-top: 8px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 5px 12px;
+            border: 1px solid #000;
+            background: #eaeaea;
+            cursor: pointer;
+            font-size: 12px;
+            user-select: none;
+        }
+
+        .errorBox {
+            margin-top: 8px;
+            color: #b00000;
+            font-size: 12px;
+            display: none;
+        }
+    </style>
+
+    <script>
+        // ✅ cleaner query parsing (handles ?objectnumber=TCL%2300)
+        function getParam(name) {
+            const params = new URLSearchParams(window.location.search);
+            return params.get(name); // already decoded by browser for most cases
+        }
+
+        // ✅ FormCheck rules from the assignment
+        function formCheck() {
+            const number = document.getElementById("virus_number_input").value.trim();
+            const name = document.getElementById("virus_name_input").value.trim();
+            const text = document.getElementById("virus_text_input").value.trim();
+
+            const errorBox = document.getElementById("errorBox");
+            const errors = [];
+
+            // 1) Nothing empty
+            if (number === "" || name === "" || text === "") {
+                errors.push("Inget fält får vara tomt.");
+            }
+
+            // 2) Number must contain # and max 7 characters
+            if (!number.includes("#")) {
+                errors.push("Nummern måste innehålla ett \"#\"-tecken.");
+            }
+            if (number.length > 7) {
+                errors.push("Nummern får vara max 7 tecken lång.");
+            }
+
+            if (errors.length > 0) {
+                errorBox.style.display = "block";
+                errorBox.innerHTML = errors.join("<br>");
+                return false; // stop submit
+            }
+
+            errorBox.style.display = "none";
+            errorBox.innerHTML = "";
+
+            // You don't need to actually post/save, so just show confirmation:
+            alert("FormCheck OK! (Ingen postning krävs i uppgiften)");
+            return false; // keep it false so page doesn't reload
+        }
+
+        function readXMLfile(file) {
+            const xmlhttp = new XMLHttpRequest();
+            xmlhttp.onload = function () {
+                if (this.status === 200) {
+                    fillFormFromXML(this);
+                } else {
+                    alert("Kunde inte ladda XML-filen: " + file + " (status " + this.status + ")");
+                }
+            };
+            xmlhttp.open("GET", file, true);
+            xmlhttp.send();
+        }
+
+        function fillFormFromXML(xml) {
+            const xmlDoc = xml.responseXML;
+
+            const objectName = xmlDoc.getElementsByTagName("objectName")[0].textContent;
+            const objectNumber = xmlDoc.getElementsByTagName("objectNumber")[0].textContent;
+            const objectCreator = xmlDoc.getElementsByTagName("objectCreator")[0].textContent;
+            const objectCreateDate = xmlDoc.getElementsByTagName("objectCreateDate")[0].textContent;
+            const objectCreateTime = xmlDoc.getElementsByTagName("objectCreateTime")[0].textContent;
+            const objectText = xmlDoc.getElementsByTagName("objectText")[0].textContent;
+
+            // Fill inputs
+            document.getElementById("virus_number_input").value = objectNumber;
+            document.getElementById("virus_name_input").value = objectName;
+            document.getElementById("virus_text_input").value = objectText;
+
+            // Right-side meta like screenshot
+            document.getElementById("meta_created_date").textContent = objectCreateDate;
+            document.getElementById("meta_created_time").textContent = objectCreateTime;
+            document.getElementById("meta_creator").textContent = objectCreator;
+        }
+
+        window.onload = function () {
+            const objectnumber = getParam("objectnumber"); // e.g. "TCL#00"
+            if (!objectnumber) {
+                alert("Ingen objectnumber i URL:en.");
+                return;
+            }
+
+            // IMPORTANT: encode for filename in URL request
+            const file = "data/" + encodeURIComponent(objectnumber) + ".xml";
+            readXMLfile(file);
+        };
+    </script>
 </head>
+
 <body>
-    
+    <!-- your left menu etc can stay the same as other pages -->
+    <!-- ======== left menu start ======== -->
+    <div id="leftsidebar" class="sidebar">
+        <div class="openmenutext">
+            <a href="javascript:void(0)" class="closemenubutton" onclick="closeMenu()">×</a>
+            <b><a href="company_presentation.html">Company Presentation</a></b>
+            <a href="pharmaceutical_research.html">1. Pharmaceutical Research</a>
+            <a href="natural_resources.html">2. Natural Resources</a>
+            <a href="shipping.html">3. Shipping</a>
+            <p>
+                <b><a href="history.html">History</a></b>
+            <p>
+                <b><a href="headquarters.html">Headquarters</a></b>
+                <a href="board_of_directors.html">1. Board of Directors</a>
+                <a href="internations_suppliers.html">2. International Suppliers</a>
+                <a href="kijuju_laboratory.html">3. Kijuju Laboratory</a>
+                <a href="mariehamn_data_lab.html">4. Mariehamn Data Lab</a>
+            <p>
+                <b><a href="personnel_registry.html">Personnel Registry</a></b>
+        </div>
+    </div>
+
+
+    <!-- ======== left menu stop ======== -->
+
+    <div id="menubuttoncontainer">
+        <button class="openmenubutton" onclick="openMenu()">Sitemap</button>
+    </div>
+
+    <div id="headercontainer">
+
+        <!-- Headerleft start -->
+        <div id="headerleft">
+            <img id="headerlogo" src="images/logo.gif" alt="Tricell Laboratories" />
+        </div>
+        <!-- Headerleft slut -->
+
+        <!-- Headermiddle start -->
+        <div id="headermiddle">
+            <!-- Sociala-medier start -->
+            <table>
+                <tr>
+                    <td class="socialicon"><a href="http://www.facebook.com"><img src="images/social_fb.gif"
+                                alt="Facebook" border="0" /></a></td>
+                    <td class="socialicon"><a href="http://www.instagram.com"><img src="images/social_insta.gif"
+                                alt="Instagram" border="0" /></a></td>
+                    <td class="socialicon"><a href="http://www.twitter.com"><img src="images/social_twitter.gif"
+                                alt="Twitter" border="0" /></a></td>
+                    <td class="socialicon"><a href="http://www.youtube.com"><img src="images/social_youtube.gif"
+                                alt="Youtube" border="0" /></a></td>
+                    <td class="socialicon"><a href="http://www.pinterest.com"><img src="images/social_pin.gif"
+                                alt="Pinterest" border="0" /></a></td>
+                    <td class="socialicon"><a href="http://www.snapchat.com"><img src="images/social_snap.gif"
+                                alt="Snapchat" border="0" /></a></td>
+                </tr>
+            </table>
+            <!-- Sociala-medier slut -->
+        </div>
+        <!-- Headermiddle slut -->
+
+        <!-- Headerright start -->
+        <div id="headerright">
+            <!-- Kontaktuppgifter start -->
+            <table>
+                <tr>
+                    <td colspan="2" height="20" valign="top" align="center">
+                        <font class="contactheading">TRICELL LABORATORIES</font>
+                    <td>
+                </tr>
+                <tr>
+                    <td class="contacticon"><img src="images/contact_phone.gif" alt="Phone" border="0" /></td>
+                    <td class="contactinfo">+324 (555)-541 236</td>
+                </tr>
+                <tr>
+                    <td class="contacticon"><img src="images/contact_fax.gif" alt="Fax" border="0" /></td>
+                    <td class="contactinfo">+324 (555)-543 626</td>
+                </tr>
+                <tr>
+                    <td class="contacticon"><img src="images/contact_mail.gif" alt="Mail" border="0" /></td>
+                    <td class="contactinfo">office@tricell.com</td>
+                </tr>
+                <tr>
+                    <td class="contacticon"><img src="images/contact_web.gif" alt="Web" border="0" /></td>
+                    <td class="contactinfo">www.tricell.com</td>
+                </tr>
+            </table>
+            <!-- Kontaktuppgifter slut -->
+        </div>
+        <!-- Headerright slut -->
+
+    </div>
+    <div style="height :0px;clear: both;"></div>
+
+    <!------------------------- Header slut ------------------------------>
+
+    <!------------------------- Meny start ------------------------------>
+
+    <!-- Meny-box start -->
+    <div id="mainmenuback">
+
+        <!-- Back-knapp start -->
+        <div class="menuitem">
+            <table>
+                <tr>
+                    <td class="mainmenuicon"><a href="index.html"><img src="images/menu_back.png" alt="Back" /></a></td>
+                </tr>
+            </table>
+        </div>
+        <!-- Back-knapp slut -->
+
+
+        <!-- Menyn item start-->
+        <div class="menuitem">
+            <table>
+                <tr>
+                    <td class="mainmenuicon"><img src="images/menu_company.png" border="0" /></td>
+                    <td class="mainmenutext"><a href="company_presentation.html">Company Presentation</a></td>
+                </tr>
+            </table>
+            <div class="menudropitem">
+                <table>
+                    <tr>
+                        <td class="menudropitemtext" colspan="2"><a href="pharmaceutical_research.html">1.
+                                Pharmaceutical Research</a></td>
+                    </tr>
+                    <tr>
+                        <td class="menudropitemtext" colspan="2"><a href="natural_resources.html">2. Natural
+                                Resources</a></td>
+                    </tr>
+                    <tr>
+                        <td class="menudropitemtext" colspan="2"><a href="shipping.html">3. Shipping</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- Menyn item slut -->
+
+        <!-- Menyn item start-->
+        <div class="menuitem">
+            <table>
+                <tr>
+                    <td class="mainmenuicon"><img src="images/menu_history.png" border="0" /></td>
+                    <td class="mainmenutext"><a href="history.html">History</a></td>
+                </tr>
+            </table>
+        </div>
+        <!-- Menyn item slut -->
+
+        <!-- Menyn item start-->
+        <div class="menuitem">
+            <table>
+                <tr>
+                    <td class="mainmenuicon"><img src="images/menu_board.png" border="0" /></td>
+                    <td class="mainmenutext"><a href="headquarters.html">Headquarters</a></td>
+                </tr>
+            </table>
+            <div class="menudropitem">
+                <table>
+                    <tr>
+                        <td class="menudropitemtext" colspan="2"><a href="board_of_directors.html">Board of
+                                Directors</a></td>
+                    </tr>
+                    <tr>
+                        <td class="menudropitemtext" colspan="2"><a href="international_suppliers.html">International
+                                Suppliers</a></td>
+                    </tr>
+                    <tr>
+                        <td class="menudropitemtext" colspan="2"><a href="kijuju_laboratory.html">Kijuju Laboratory</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="menudropitemtext" colspan="2"><a href="mariehamn_data_lab.html">Mariehamn Data
+                                Lab</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- Menyn item slut -->
+
+        <!-- Menyn item start-->
+        <div class="menuitem">
+            <table>
+                <tr>
+                    <td class="mainmenuicon"><img src="images/menu_personnel.png" border="0" /></td>
+                    <td class="mainmenutext"><a href="personnel_registry.html">Personnel Registry</a></td>
+                </tr>
+            </table>
+        </div>
+        <!-- Menyn item slut -->
+
+    </div>
+    <div style="height :0px;clear: both;"></div>
+    <!-- Meny-box slut -->
+
+    <!------------------------- Meny slut ------------------------------>
+
+
+
+
+    <table class="infotable">
+        <tr>
+            <td class="infotitles" style="width:500px;">
+                <h1>Edit Research Info</h1>
+
+                <div class="editBox">
+                    <form onsubmit="return formCheck();">
+                        <div class="formRow">
+                            <input id="virus_number_input" type="text" />
+                            <input id="virus_name_input" type="text" />
+                            <div class="dateTimeCreator" style="margin-left:auto; text-align:right; padding-right:0;">
+                                <div class="metaBox">
+                                    <div><b>Created:</b> <span id="meta_created_date">—</span> <span
+                                            id="meta_created_time">—</span></div>
+                                    <div><b>By:</b> <span id="meta_creator">—</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <textarea id="virus_text_input"></textarea>
+
+                        <div class="btnRow">
+                            <button class="btn" type="submit">Update</button>
+                        </div>
+
+                        <div id="errorBox" class="errorBox"></div>
+                    </form>
+                </div>
+            </td>
+        </tr>
+    </table>
 </body>
+
 </html>

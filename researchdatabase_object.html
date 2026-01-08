@@ -88,12 +88,13 @@
             text-align: right;
             /* meta box sits to the right */
             padding-right: 10px;
+            font-size: 15px;
         }
 
 
         #virus_number {
             margin: 0;
-            font-size: 40px;
+            font-size: 24px;
             /* tweak */
             font-weight: bold;
         }
@@ -103,7 +104,7 @@
             /* allows right-alignment */
             text-align: left;
             /* text inside reads nicely */
-            font-size: 12px;
+            font-size: 15px;
             line-height: 1.4;
         }
 
@@ -114,6 +115,16 @@
         #virus_name {
             font-size: 22px;
             font-weight: normal;
+        }
+        .virus_name_box {
+            padding: 10px 10px 0 0;
+            width: 622px;
+        }
+        .virusRow {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 8px;
         }
     </style>
 
@@ -380,29 +391,26 @@
     <!-- Info-tabell start -->
     <table class="infotable">
         <tr>
-            <td style="width: 500px;" class="infotitles">
+            <td style="width: 300px;" class="infotitles">
 
-                <div style="width: 500px;">
-                    <h1>Research Database:</h1>
-                    <h1 class="virusTitle">
-                        <span id="virus_number">TCL#2</span>
-                        <span id="virus_name">T-Virus</span>
-                    </h1>
-
-                </div>
-
-
-            </td>
-            <td class="dateTimeCreator">
-                <div class="metaBox">
-                    <div>
-                        <b>Created:</b>
-                        <span id="meta_created_date">—</span>
-                        <span id="meta_created_time">—</span>
-                    </div>
-                    <div>
-                        <b>By:</b>
-                        <span id="meta_creator">—</span>
+                <h1>Research Database:</h1>
+                <div class="virus_name_box">
+                    <div class="virusRow">
+                        <h1 class="virusTitle">
+                            <span id="virus_number">TCL#2</span>
+                            <span id="virus_name">T-Virus</span>
+                        </h1>
+                        <div class="dateTimeCreator" style="margin-left:auto; text-align:right; padding-right:0;">
+                            <div class="metaBox">
+                                <span>Created:</span>
+                                <span id="meta_created_date">—</span>
+                                <span id="meta_created_time">—</span>
+                            </div>
+                            <div>
+                                <span>By:</span>
+                                <span id="meta_creator">—</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </td>
@@ -413,7 +421,6 @@
 
             <td class="infotablecell" colspan="2">
                 <div class="container" id="objectText">
-                    tsudo
                 </div>
                 <div class="button" id="editbutton">
                     <a id="editLink" class="button" href="#"><b>Edit info</b></a>

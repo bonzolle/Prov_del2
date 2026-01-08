@@ -235,3 +235,10 @@ h3 {
 .board-subtitle {
 	font-weight: normal;
 }
+
+.infotitles {
+	padding-top: 20px;
+	padding-left: 20px;
+	text-align: left;
+	vertical-align: bottom;
+}

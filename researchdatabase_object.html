@@ -1,11 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tricell Laboratories Inc, Åland</title>
+
+    <script language="JavaScript" type="text/javascript" src="scripts/leftmenu.js"></script>
+
+    <link rel="stylesheet" href="css/index.css" /><!-- Gemensam CSS -->
+    <link rel="stylesheet" href="css/leftmenu.css" />
+
+    <!-- Egna CSS-definitioner som berör endast denna sida -->
+    <style>
+        #table {
+            width: 716px;
+            display: table;
+            font-size: 12px;
+            font-family: Arial, Verdana, Geneva, Helvetica, sans-serif;
+            color: #000000;
+        }
+
+        #table-header {
+            display: table-header-group;
+            height: 30px;
+        }
+
+        .table-header-cell-light,
+        .table-header-cell-dark {
+            display: table-cell;
+            border: 1px solid;
+            border-color: #000000;
+            border-collapse: collapse;
+            vertical-align: middle;
+            font-weight: bold;
+        }
+
+        .table-header-cell-light {
+            text-align: center;
+            background-color: #b0dfdf;
+        }
+
+        .table-header-cell-dark {
+            padding: 5px;
+            text-align: left;
+            vertical-align: middle;
+            background-color: #548d8d;
+            font-size: 16px;
+        }
+
+        #table-body {
+            display: table-row-group;
+        }
+
+        .resp-table-row {
+            display: table-row;
+        }
+
+        .table-body-cell,
+        .table-body-cell-bigger {
+            display: table-cell;
+            border: 1px solid;
+            border-color: #000000;
+            border-collapse: collapse;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .table-body-cell-bigger {
+            text-align: left;
+            height: 20px;
+            background-color: #cccccc;
+            padding: 5px;
+            color: #ffffff;
+            font-size: 16px;
+        }
+    </style>
+
+    <script>
+        function getQueryVariable(variable) {
+
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+
+                if (pair[0] == variable) {
+                    return pair[1];
+
+
+                }
+            }
+        }
+
+        var employee = "data/" + decodeURI(getQueryVariable("employee")) + ".xml";
+
+        function readXMLfile(employee) {
+
+            var xmlhttp = new XMLHttpRequest();
+
+            xmlhttp.onload = function () {
+
+                getXMLdata(this)
+            };
+            xmlhttp.open("GET", employee, true)
+            xmlhttp.send();
+
+        }
+
+        function getXMLdata(xml) {
+
+            var xmlDoc = xml.responseXML;
+
+            var employeeCode = xmlDoc.getElementsByTagName("employeeCode")[0].childNodes[0].nodeValue;
+
+            var name = xmlDoc.getElementsByTagName("name")[0].childNodes[0].nodeValue;
+            var signatureDate = xmlDoc.getElementsByTagName("signatureDate")[0].childNodes[0].nodeValue;
+            var dateOfBirth = xmlDoc.getElementsByTagName("dateOfBirth")[0].childNodes[0].nodeValue;
+            var sex = xmlDoc.getElementsByTagName("sex")[0].childNodes[0].nodeValue;
+            var height = xmlDoc.getElementsByTagName("height")[0].childNodes[0].nodeValue;
+            var weight = xmlDoc.getElementsByTagName("weight")[0].childNodes[0].nodeValue;
+            var bloodType = xmlDoc.getElementsByTagName("bloodType")[0].childNodes[0].nodeValue;
+            var rank = xmlDoc.getElementsByTagName("rank")[0].childNodes[0].nodeValue;
+            var securityAccessLevel = xmlDoc.getElementsByTagName("securityAccessLevel")[0].childNodes[0].nodeValue;
+            var department = xmlDoc.getElementsByTagName("department")[0].childNodes[0].nodeValue;
+
+            var background = xmlDoc.getElementsByTagName("background")[0].childNodes[0].nodeValue;
+            var strengths = xmlDoc.getElementsByTagName("strengths")[0].childNodes[0].nodeValue;
+            var weaknesses = xmlDoc.getElementsByTagName("weaknesses")[0].childNodes[0].nodeValue;
+
+            document.getElementById("info_employeeCode").innerHTML = employeeCode;
+            document.getElementById("info_name").innerHTML = name;
+            document.getElementById("info_securityAccessLevel").innerHTML = securityAccessLevel;
+            document.getElementById("info_DOB").innerHTML = dateOfBirth;
+            document.getElementById("info_sex").innerHTML = sex;
+            document.getElementById("info_height").innerHTML = height;
+            document.getElementById("info_weight").innerHTML = weight;
+            document.getElementById("info_bloodType").innerHTML = bloodType;
+            document.getElementById("info_department").innerHTML = department;
+            document.getElementById("info_rank").innerHTML = rank;
+            document.getElementById("info_background").innerHTML = background;
+            document.getElementById("info_strengths").innerHTML = strengths;
+            document.getElementById("info_weaknesses").innerHTML = weaknesses;
+
+            document.getElementById("info_photo").innerHTML = "<img src='photos/" + employeeCode + ".jpg' width ='164'/>";
+            document.getElementById("virus_name").innerHTML = objectName
+            document.getElementById("table").innerHTML = HTMLtxt;
+        }
+    </script>
 </head>
-<body>
-    
+
+<body onLoad="loadXMLDoc()">
+    <!-- ======== left menu start ======== -->
+    <div id="leftsidebar" class="sidebar">
+        <div class="openmenutext">
+            <a href="javascript:void(0)" class="closemenubutton" onclick="closeMenu()">×</a>
+            <b><a href="company_presentation.html">Company Presentation</a></b>
+            <a href="pharmaceutical_research.html">1. Pharmaceutical Research</a>
+            <a href="natural_resources.html">2. Natural Resources</a>
+            <a href="shipping.html">3. Shipping</a>
+            <p>
+                <b><a href="history.html">History</a></b>
+            <p>
+                <b><a href="headquarters.html">Headquarters</a></b>
+                <a href="board_of_directors.html">1. Board of Directors</a>
+                <a href="internations_suppliers.html">2. International Suppliers</a>
+                <a href="kijuju_laboratory.html">3. Kijuju Laboratory</a>
+                <a href="mariehamn_data_lab.html">4. Mariehamn Data Lab</a>
+            <p>
+                <b><a href="personnel_registry.html">Personnel Registry</a></b>
+        </div>
+    </div>
+
+
+    <!-- ======== left menu stop ======== -->
+
+    <div id="menubuttoncontainer">
+        <button class="openmenubutton" onclick="openMenu()">Sitemap</button>
+    </div>
+
+    <div id="headercontainer">
+
+        <!-- Headerleft start -->
+        <div id="headerleft">
+            <img id="headerlogo" src="images/logo.gif" alt="Tricell Laboratories" />
+        </div>
+        <!-- Headerleft slut -->
+
+        <!-- Headermiddle start -->
+        <div id="headermiddle">
+            <!-- Sociala-medier start -->
+            <table>
+                <tr>
+                    <td class="socialicon"><a href="http://www.facebook.com"><img src="images/social_fb.gif"
+                                alt="Facebook" border="0" /></a></td>
+                    <td class="socialicon"><a href="http://www.instagram.com"><img src="images/social_insta.gif"
+                                alt="Instagram" border="0" /></a></td>
+                    <td class="socialicon"><a href="http://www.twitter.com"><img src="images/social_twitter.gif"
+                                alt="Twitter" border="0" /></a></td>
+                    <td class="socialicon"><a href="http://www.youtube.com"><img src="images/social_youtube.gif"
+                                alt="Youtube" border="0" /></a></td>
+                    <td class="socialicon"><a href="http://www.pinterest.com"><img src="images/social_pin.gif"
+                                alt="Pinterest" border="0" /></a></td>
+                    <td class="socialicon"><a href="http://www.snapchat.com"><img src="images/social_snap.gif"
+                                alt="Snapchat" border="0" /></a></td>
+                </tr>
+            </table>
+            <!-- Sociala-medier slut -->
+        </div>
+        <!-- Headermiddle slut -->
+
+        <!-- Headerright start -->
+        <div id="headerright">
+            <!-- Kontaktuppgifter start -->
+            <table>
+                <tr>
+                    <td colspan="2" height="20" valign="top" align="center">
+                        <font class="contactheading">TRICELL LABORATORIES</font>
+                    <td>
+                </tr>
+                <tr>
+                    <td class="contacticon"><img src="images/contact_phone.gif" alt="Phone" border="0" /></td>
+                    <td class="contactinfo">+324 (555)-541 236</td>
+                </tr>
+                <tr>
+                    <td class="contacticon"><img src="images/contact_fax.gif" alt="Fax" border="0" /></td>
+                    <td class="contactinfo">+324 (555)-543 626</td>
+                </tr>
+                <tr>
+                    <td class="contacticon"><img src="images/contact_mail.gif" alt="Mail" border="0" /></td>
+                    <td class="contactinfo">office@tricell.com</td>
+                </tr>
+                <tr>
+                    <td class="contacticon"><img src="images/contact_web.gif" alt="Web" border="0" /></td>
+                    <td class="contactinfo">www.tricell.com</td>
+                </tr>
+            </table>
+            <!-- Kontaktuppgifter slut -->
+        </div>
+        <!-- Headerright slut -->
+
+    </div>
+    <div style="height :0px;clear: both;"></div>
+
+    <!------------------------- Header slut ------------------------------>
+
+    <!------------------------- Meny start ------------------------------>
+
+    <!-- Meny-box start -->
+    <div id="mainmenuback">
+
+        <!-- Back-knapp start -->
+        <div class="menuitem">
+            <table>
+                <tr>
+                    <td class="mainmenuicon"><a href="index.html"><img src="images/menu_back.png" alt="Back" /></a></td>
+                </tr>
+            </table>
+        </div>
+        <!-- Back-knapp slut -->
+
+
+        <!-- Menyn item start-->
+        <div class="menuitem">
+            <table>
+                <tr>
+                    <td class="mainmenuicon"><img src="images/menu_company.png" border="0" /></td>
+                    <td class="mainmenutext"><a href="company_presentation.html">Company Presentation</a></td>
+                </tr>
+            </table>
+            <div class="menudropitem">
+                <table>
+                    <tr>
+                        <td class="menudropitemtext" colspan="2"><a href="pharmaceutical_research.html">1.
+                                Pharmaceutical Research</a></td>
+                    </tr>
+                    <tr>
+                        <td class="menudropitemtext" colspan="2"><a href="natural_resources.html">2. Natural
+                                Resources</a></td>
+                    </tr>
+                    <tr>
+                        <td class="menudropitemtext" colspan="2"><a href="shipping.html">3. Shipping</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- Menyn item slut -->
+
+        <!-- Menyn item start-->
+        <div class="menuitem">
+            <table>
+                <tr>
+                    <td class="mainmenuicon"><img src="images/menu_history.png" border="0" /></td>
+                    <td class="mainmenutext"><a href="history.html">History</a></td>
+                </tr>
+            </table>
+        </div>
+        <!-- Menyn item slut -->
+
+        <!-- Menyn item start-->
+        <div class="menuitem">
+            <table>
+                <tr>
+                    <td class="mainmenuicon"><img src="images/menu_board.png" border="0" /></td>
+                    <td class="mainmenutext"><a href="headquarters.html">Headquarters</a></td>
+                </tr>
+            </table>
+            <div class="menudropitem">
+                <table>
+                    <tr>
+                        <td class="menudropitemtext" colspan="2"><a href="board_of_directors.html">Board of
+                                Directors</a></td>
+                    </tr>
+                    <tr>
+                        <td class="menudropitemtext" colspan="2"><a href="international_suppliers.html">International
+                                Suppliers</a></td>
+                    </tr>
+                    <tr>
+                        <td class="menudropitemtext" colspan="2"><a href="kijuju_laboratory.html">Kijuju Laboratory</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="menudropitemtext" colspan="2"><a href="mariehamn_data_lab.html">Mariehamn Data
+                                Lab</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- Menyn item slut -->
+
+        <!-- Menyn item start-->
+        <div class="menuitem">
+            <table>
+                <tr>
+                    <td class="mainmenuicon"><img src="images/menu_personnel.png" border="0" /></td>
+                    <td class="mainmenutext"><a href="personnel_registry.html">Personnel Registry</a></td>
+                </tr>
+            </table>
+        </div>
+        <!-- Menyn item slut -->
+
+    </div>
+    <div style="height :0px;clear: both;"></div>
+    <!-- Meny-box slut -->
+
+    <!------------------------- Meny slut ------------------------------>
+    <!------------------------- Info start ------------------------------>
+
+    <!-- Info-tabell start -->
+    <table class="infotable">
+        <tr>
+            <td class="infotitles">
+
+                <div>
+                    <h1>Research Database:</h1>
+                    <h1 id="virus_name">test</h1>
+                </div>
+
+
+
+
+
+            </td>
+        </tr>
+        <tr>
+
+            <td class="infotablecell">
+                <div id="table">
+                </div>
+
+            </td>
+        </tr>
+    </table>
+    <!-- Yttre tabell slut -->
+
+    <!------------------------- Info slut ------------------------------>
+
 </body>
+
 </html>

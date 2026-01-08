@@ -242,3 +242,27 @@ h3 {
 	text-align: left;
 	vertical-align: bottom;
 }
+#virus_content {
+	background-color: rgba(163, 255, 224, 0.383);
+	border: 1px solid black;
+	width: 600px;
+	height: fit-content;
+	min-height: 100px;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+}
+
+#editbutton {
+	margin-top: 10px;
+	width: 100px;
+	height: 30px;
+	background-color: rgba(10, 31, 133, 0.394);
+	color: black;
+	text-align: left;
+	padding-left: 10px;
+	line-height: 30px;
+	border: 1px solid black;
+	cursor: pointer;
+}

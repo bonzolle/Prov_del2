@@ -172,6 +172,7 @@
             document.getElementById("meta_creator").innerHTML = objectCreator
             document.getElementById("virus_number").innerHTML = objectNumber
             document.getElementById("objectText").innerHTML = objectText
+            document.getElementById("editLink").href = "researchdatabase_object_edit.html?objectnumber=" + encodeURIComponent(objectNumber);
 
 
 
@@ -415,7 +416,8 @@
                     tsudo
                 </div>
                 <div class="button" id="editbutton">
-                    <b>Edit info</b>
+                    <a id="editLink" class="button" href="#"><b>Edit info</b></a>
+
                 </div>
             </td>
         </tr>

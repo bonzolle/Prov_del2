@@ -73,6 +73,22 @@
             color: #ffffff;
             font-size: 16px;
         }
+
+        .dateTimeCreator {
+            width: 260px;
+            /* tweak to match your “picture” */
+            vertical-align: bottom;
+            text-align: center;
+            /* aligns it to the right */
+            padding-right: 10px;
+        }
+
+        #virus_number {
+            margin: 0;
+            font-size: 40px;
+            /* tweak */
+            font-weight: bold;
+        }
     </style>
 
     <script>
@@ -327,22 +343,25 @@
     <!-- Info-tabell start -->
     <table class="infotable">
         <tr>
-            <td class="infotitles">
+            <td style="width: 500px;" class="infotitles">
 
-                <div>
+                <div style="width: 500px;">
                     <h1>Research Database:</h1>
                     <h1 id="virus_number">test</h1>
                 </div>
 
 
+            </td>
+            <td class="dateTimeCreator">
 
 
 
             </td>
+
         </tr>
         <tr>
 
-            <td class="infotablecell">
+            <td class="infotablecell" colspan="2">
                 <div id="table">
                 </div>
 

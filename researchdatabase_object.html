@@ -19,6 +19,13 @@
             color: #000000;
         }
 
+        .infotable {
+            width: 758px;
+            /* match your layout width */
+            border-collapse: collapse;
+        }
+
+
         #table-header {
             display: table-header-group;
             height: 30px;
@@ -73,6 +80,41 @@
             color: #ffffff;
             font-size: 16px;
         }
+
+        .dateTimeCreator {
+            width: 260px;
+            vertical-align: top;
+            /* screenshot: top aligned */
+            text-align: right;
+            /* meta box sits to the right */
+            padding-right: 10px;
+        }
+
+
+        #virus_number {
+            margin: 0;
+            font-size: 40px;
+            /* tweak */
+            font-weight: bold;
+        }
+
+        .metaBox {
+            display: inline-block;
+            /* allows right-alignment */
+            text-align: left;
+            /* text inside reads nicely */
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .virusTitle {
+            margin: 0;
+        }
+
+        #virus_name {
+            font-size: 22px;
+            font-weight: normal;
+        }
     </style>
 
     <script>
@@ -117,12 +159,22 @@
 
             var objectName = xmlDoc.getElementsByTagName("objectName")[0].childNodes[0].nodeValue;
             var objectNumber = xmlDoc.getElementsByTagName("objectNumber")[0].childNodes[0].nodeValue;
-
+            var objectCreator = xmlDoc.getElementsByTagName("objectCreator")[0].childNodes[0].nodeValue
+            var objectCreateDate = xmlDoc.getElementsByTagName("objectCreateDate")[0].childNodes[0].nodeValue
+            var objectCreateTime = xmlDoc.getElementsByTagName("objectCreateTime")[0].childNodes[0].nodeValue
+            var objectText = xmlDoc.getElementsByTagName("objectText")[0].childNodes[0].nodeValue
 
 
 
             document.getElementById("virus_number").innerHTML = objectNumber
-            document.getElementById("table").innerHTML = HTMLtxt;
+            document.getElementById("meta_created_date").innerHTML = objectCreateDate
+            document.getElementById("meta_created_time").innerHTML = objectCreateTime
+            document.getElementById("meta_creator").innerHTML = objectCreator
+            document.getElementById("virus_number").innerHTML = objectNumber
+            document.getElementById("objectText").innerHTML = objectText
+
+
+
         }
     </script>
 </head>
@@ -327,31 +379,47 @@
     <!-- Info-tabell start -->
     <table class="infotable">
         <tr>
-            <td class="infotitles">
+            <td style="width: 500px;" class="infotitles">
 
-                <div>
+                <div style="width: 500px;">
                     <h1>Research Database:</h1>
-                    <h1 id="virus_number">test</h1>
+                    <h1 class="virusTitle">
+                        <span id="virus_number">TCL#2</span>
+                        <span id="virus_name">T-Virus</span>
+                    </h1>
+
                 </div>
 
 
-
-
-
             </td>
+            <td class="dateTimeCreator">
+                <div class="metaBox">
+                    <div>
+                        <b>Created:</b>
+                        <span id="meta_created_date">—</span>
+                        <span id="meta_created_time">—</span>
+                    </div>
+                    <div>
+                        <b>By:</b>
+                        <span id="meta_creator">—</span>
+                    </div>
+                </div>
+            </td>
+        </tr>
+
         </tr>
         <tr>
 
             <td class="infotablecell">
-                <div class="container" id="virus_content">
-                   tsudo
+                <div class="container" id="objectText">
+                    tsudo
                 </div>
                 <div class="button" id="editbutton">
                     <b>Edit info</b>
                 </div>
             </td>
         </tr>
-        
+
     </table>
     <!-- Yttre tabell slut -->
 

@@ -1,0 +1,127 @@
+<researchDatabase>
+	<researchObject>
+		<objectNumber>TCL#00</objectNumber>
+		<objectName>Stariway of the Sun</objectName>
+		<objectCreator>ITXX-01</objectCreator>
+		<objectCreateDate>07.02.2022</objectCreateDate>
+		<objectCreateTime>15:42</objectCreateTime>
+<objectText>
+Stairway of the Sun, also called Sonnentreppe in German, is a species of flowering plant native to West Africa, and belonging to the family Asteraceae, which includes such flowers as the Chrysanthemum or Sunflower.
+</objectText>
+	</researchObject>
+	<researchObject>
+		<objectNumber>TCL#01</objectNumber>
+		<objectName>Progenitor Virus</objectName>
+		<objectCreator>ITXX-01</objectCreator>
+		<objectCreateDate>12.03.2022</objectCreateDate>
+		<objectCreateTime>11:45</objectCreateTime>
+<objectText>
+Progenitor virus (shiso uirusu?) is a family of RNA viruses. Progenitor is immensely ancient, and is suspected of being hundreds of millions if not billions of years old, and is considered to have both aided and hindered evolution of Earth's ecology through the extremities of its resulting mutations.
+While otherwise behaving as a typical Group VI virus in the Baltimore classification, Progenitor is distinct from all other viruses by being able to reverse lysis in cells and revive organisms dead for considerable lengths of time. Whereas other retroviruses, such as Human Immunodeficiency Virus, will target particular cells of a particular animal's body, Progenitor is capable of infecting the cells of any organism, whether animal, fungal, plant or bacterial.
+Considerable research on Progenitor has been undertaken since its discovery in the late 1960s, and a number of engineered strains have since come into existence primarily for bioweapons research.
+</objectText>
+	</researchObject>
+	<researchObject>
+		<objectNumber>TCL#02</objectNumber>
+		<objectName>T-Virus</objectName>
+		<objectCreator>ITXX-02</objectCreator>
+		<objectCreateDate>01.06.2023</objectCreateDate>
+		<objectCreateTime>14:05</objectCreateTime>
+<objectText>
+Tyrant Virus, otherwise known as the t-Virus, is the general name given to a series of mutant Progenitor virus strains.
+Initially developed by Umbrella Pharmaceuticals in the late 1960s, the primary goal of the "t-Virus Project" was to effectively eliminate the need for a large-scale conventional army and generate revenue to go to their eugenics program, the Wesker Project. This required two things: the virus had to be highly-contagious to the point of infecting an entire target population and guarantee a 100% mortality rate.[1][2] Such a virus was impossible due to such contagions' tendencies to kill too many people at once and prevent further spread.
+</objectText>
+	</researchObject>
+	<researchObject>
+		<objectNumber>TCL#03</objectNumber>
+		<objectName>T-Veronica Virus</objectName>
+		<objectCreator>ITXX-03</objectCreator>
+		<objectCreateDate>21.08.2023</objectCreateDate>
+		<objectCreateTime>14:05</objectCreateTime>
+<objectText>
+The t-Veronica Virus, is a strain of Progenitor virus created by Dr. Alexia Ashford which, under the correct conditions, allows the host to retain full intellectual capabilities. It is named after Veronica Ashford, the Ashford family's matriarch.
+</objectText>
+	</researchObject>
+	<researchObject>
+		<objectNumber>TCL#04</objectNumber>
+		<objectName>Uroboros</objectName>
+		<objectCreator>ITXX-04</objectCreator>
+		<objectCreateDate>11.09.2023</objectCreateDate>
+		<objectCreateTime>13:11</objectCreateTime>
+<objectText>
+Uroboros is an RNA virus in the Progenitor family. Engineered in the 21st century by Dr. Albert Wesker as the ultimate eugenics tool, a less potent strain was later developed by Dr. Alex Wesker to serve as a bio-weapon. There is currently no known vaccine for either strain of Uroboros. The virus' name is derived from the Ouroboros in Greek mythology, a snake or snake-like creature which consumed itself.
+</objectText>
+	</researchObject>
+	<researchObject>
+		<objectNumber>TCL#05</objectNumber>
+		<objectName>G-Virus</objectName>
+		<objectCreator>ITXX-04</objectCreator>
+		<objectCreateDate>11.09.2023</objectCreateDate>
+		<objectCreateTime>13:11</objectCreateTime>
+<objectText>
+The Golgotha Virus, abbreviated as G-Virus, is a retrovirus in the Progenitor family of viruses. Golgotha was developed by Umbrella USA as a bioweapon to rival and surpass Tyrant Virus ("t-Virus"). The two viruses, while being descended from Progenitor, are totally dissimilar. Whereas t-Virus typically causes relatively minor mutations in human hosts, like Zombies and Tyrants, Golgotha causes such extreme genetic mutations that victims are no longer recognizable as human.[1] Human t-Virus mutants are almost unanimously infertile, while Golgotha's "G" mutants are highly-fertile and asexually reproductive.[1] t-Virus causes necrosis of the body as a side-effect, while Golgotha is capable of repairing dead cells, and even reviving the dead.[1][2] Because of these factors, the Golgotha is regarded as one of the greatest threats to the planet if an outbreak were to occur.
+</objectText>
+	</researchObject>
+	<researchObject>
+		<objectNumber>TCL#06</objectNumber>
+		<objectName>T-JCCC203</objectName>
+		<objectCreator>ITXX-05</objectCreator>
+		<objectCreateDate>28.11.2023</objectCreateDate>
+		<objectCreateTime>11:45</objectCreateTime>
+<objectText>
+T-JCCC 203 was an experimental virus developed by the Umbrella Corporation. A strain of the t-Virus, T-JCCC 203 was an "oncolytic virus", a virus that specifically targets cancerous cells.
+</objectText>
+	</researchObject>
+	<researchObject>
+		<objectNumber>TCL#07</objectNumber>
+		<objectName>C-Virus</objectName>
+		<objectCreator>ITXX-06</objectCreator>
+		<objectCreateDate>06.12.2023</objectCreateDate>
+		<objectCreateTime>05:23</objectCreateTime>
+<objectText>
+The Chrysalid Virus, abbreviated as C-Virus, is a family of viruses that were created by The Family as a next-generation bio-weapon. With a genome containing genes from t-Veronica and Golgotha Virus, the C-Virus was able to both preserve some degree of intelligence in mutants and revive the dead and induce violent mutations in hosts. A vaccine was created in 2013, ending its reliability as a weapon.
+</objectText>
+	</researchObject>
+	<researchObject>
+		<objectNumber>TCL#08</objectNumber>
+		<objectName>Prototype Virus</objectName>
+		<objectCreator>ITXX-07</objectCreator>
+		<objectCreateDate>03.01.2024</objectCreateDate>
+		<objectCreateTime>07:32</objectCreateTime>
+<objectText>
+The Prototype virus (tentative) was a unique strain of t-Virus that was developed as part of Project W.
+</objectText>
+	</researchObject>
+	<researchObject>
+		<objectNumber>TCL#09</objectNumber>
+		<objectName>T-Abyss Virus</objectName>
+		<objectCreator>ITXX-08</objectCreator>
+		<objectCreateDate>08.01.2024</objectCreateDate>
+		<objectCreateTime>14:22</objectCreateTime>
+<objectText>
+T-Abyss Virus is a strain of Progenitor Virus which was genetically engineered in 2003 as a bioweapon through alteration of Umbrella's perfected t-Virus. Though samples made their way to bioweapons developers, it has been prohibited from sale on the black market due to concerns of being too dangerous as a weapon product
+</objectText>
+	</researchObject>
+	<researchObject>
+		<objectNumber>TCL#10</objectNumber>
+		<objectName>Las Plagas</objectName>
+		<objectCreator>ITXX-09</objectCreator>
+		<objectCreateDate>18.02.2024</objectCreateDate>
+		<objectCreateTime>08:13</objectCreateTime>
+<objectText>
+Plagas (purāga?) are a genus of parasitic arthropod belonging to an unknown taxonomical order. They are endemic to a remote mountainous region of Spain from whence they get their name; from the Spanish words "las plagas", meaning "the plagues".
+Assuming Plagas are otherwise typical parasitic arthropods, they are believed to asexually reproduce, with their eggs being expelled from the host and consumed by other animals as part of their life-cycle. Plagas typically reach maturity within days of hatching, and following the larval stage grow through three stages dubbed "A", "B" and "C". Plagas are able to influence their host's actions by latching onto the nervous system, increasing aggression in human hosts, dubbed Ganados, as well forming a social cluster with other hosts. Unless the host's brain were destroyed, this influence is not total, allowing hosts to continue with their daily routines.
+All Plagas living in the 21st century are descended from either of two species, one artificial, employed by the paramilitary cult Los Iluminados as part of its bioweapons project.
+</objectText>
+	</researchObject>
+	<researchObject>
+		<objectNumber>TCL#11</objectNumber>
+		<objectName>A-Virus</objectName>
+		<objectCreator>ITXX-09</objectCreator>
+		<objectCreateDate>26.02.2024</objectCreateDate>
+		<objectCreateTime>13:08</objectCreateTime>
+<objectText>
+The Animality Virus, or simply the A-Virus, is a genus of Progenitor virus which was engineered as a bioweapon by a research team led by former CIA agent Glenn Arias.[1] The A-Virus was the cause of a disease similar to that of the t-Virus caused Cannibal Disease, wherein infected humans - dubbed "Zombies" - experience violent tendencies, increased hunger to the point of cannibalism, and deterioration of cognitive function. What set this viral disease apart from many other progenitor derived strains was the slower rate of cognitive deterioration, resulting in Zombies capable of a degree of speech and coordination. The virus was also noted to be highly flammable a trait it seemingly also passed on to those infected with it.
+</objectText>
+	</researchObject>
+</researchDatabase>

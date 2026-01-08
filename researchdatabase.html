@@ -108,7 +108,11 @@
                 HTMLtxt += "<div class='table-body-cell'>" + objectNumber[i].childNodes[0].nodeValue + "</div>";
 
                 var objectName = xmlDoc.getElementsByTagName("objectName");
-                HTMLtxt += "<div class='table-body-cell-bigger'><a href='researchdatabase_object.html?objectnumber=" + objectNumber[i].childNodes[0].nodeValue + "'>" + objectName[i].childNodes[0].nodeValue + "</a></div>";
+                HTMLtxt += "<div class='table-body-cell-bigger'><a href='researchdatabase_object.html?objectnumber="
+                    + encodeURIComponent(objectNumber[i].childNodes[0].nodeValue)
+                    + "'>"
+                    + objectName[i].childNodes[0].nodeValue
+                    + "</a></div>";
 
                 var objectCreateDate = xmlDoc.getElementsByTagName("objectCreateDate");
                 HTMLtxt += "<div class='table-body-cell'> " + objectCreateDate[i].childNodes[0].nodeValue + "</div>";
